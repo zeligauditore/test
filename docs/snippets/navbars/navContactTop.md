@@ -1,62 +1,113 @@
 ---
-sidebar_position: 1
-description: Barra de Navegación Base
+sidebar_position: 2
+description: Barra de Navegación con Barra de Contacto arriba.
 ---
 
-# Navbar Base
+# Contact Bar
+![Barras de Navegación](./nav2.webp)
 
-![Barras de Navegación](../snippets/navbars/navbar.gif)
 
-## Código PHP/Twig
-
+## Código PHP / TWIG
 ```php showLineNumbers
-  <section id="main-header" class="navigation">
-    <div class="nav-align">
-      <div class="brand">
-        <a href="/">
-          <img class="nav-brand" src="/assets/img/logo.png" alt="" />
-        </a>
+<section id="main-header" class="navigation">
+      <div class="top-contact">
+          <div class="container">
+              <div class="row d-flex justify-content-between">
+                  <div class="col-10 col-xl-8">
+                      <ul class="fa-ul">
+                          <li>
+                              <span class="fa-li">
+                                  <i class="fa-solid fa-phone-flip"></i>
+                              </span>
+                              <a href="tel:" target="_blank">
+                                  442 000 0000
+                              </a>
+                          </li>
+
+                          <li>
+                              <span class="fa-li">
+                                  <i class="fa-solid fa-envelope"></i>
+                              </span>
+                              <a href="mailto:" target="_blank">
+                                  contacto@contacto.com
+                              </a>
+                          </li>
+
+                          
+                          <li>
+                              <span class="fa-li">
+                                  <i class="fa-solid fa-location-dot"></i>
+                              </span>
+                              <a href="#" target="_blank">
+                                Dirección No. 00 Colonia Lomas de Queretaro
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+
+                  <div class="col-2 top-social">
+                      <a href="http://" target="_blank">
+                          <i class="fa-brands fa-facebook"></i>
+                      </a>
+                      <a href="http://" target="_blank">
+                          <i class="fa-brands fa-instagram"></i>
+                      </a>
+                      <a href="http://" target="_blank">
+                          <i class="fa-brands fa-linkedin"></i>
+                      </a>
+                      <a href="http://" target="_blank">
+                          <i class="fa-brands fa-twitter"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
       </div>
 
-      <nav>
-        <div class="nav-mobile">
-          <a id="nav-toggle" href="#!"><span></span></a>
+      <div class="nav-align">
+        <div class="brand">
+          <a href="/">
+            <img class="nav-brand" src="/assets/img/logo.png" alt="" />
+          </a>
         </div>
 
-        <ul class="nav-list">
-          <li class="nav-item {% if page == 'home' %}active{% endif %}" aria-current="inicio">
-            <a class="nav-link" href="/">
-              Inicio
-            </a>
-          </li>
+        <nav>
+          <div class="nav-mobile">
+            <a id="nav-toggle" href="#!"><span></span></a>
+          </div>
 
-          <li class="nav-item {% if page == 'nosotros' %}active{% endif %}" aria-current="nosotros">
-            <a class="nav-link" href="/nosotros">
-              Quiénes somos
-            </a>
-          </li>
+          <ul class="nav-list">
+            <li class="nav-item {% if page == 'home' %}active{% endif %}" aria-current="inicio">
+              <a class="nav-link" href="/">
+                Inicio
+              </a>
+            </li>
 
-          <li class="nav-item {% if page == 'servicios' %}active{% endif %}" aria-current="servicios">
-            <a class="nav-link" href="/servicios">
-              Servicios
-            </a>
-          </li>
+            <li class="nav-item {% if page == 'nosotros' %}active{% endif %}" aria-current="nosotros">
+              <a class="nav-link" href="/nosotros">
+                Quiénes somos
+              </a>
+            </li>
 
-          <li class="nav-item {% if page == 'contacto' %}active{% endif %}" aria-current="contacto">
-            <a class="nav-link" href="/contacto">
-              Contacto
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </section>
+            <li class="nav-item {% if page == 'servicios' %}active{% endif %}" aria-current="servicios">
+              <a class="nav-link" href="/servicios">
+                Servicios
+              </a>
+            </li>
+
+            <li class="nav-item {% if page == 'contacto' %}active{% endif %}" aria-current="contacto">
+              <a class="nav-link" href="/contacto">
+                Contacto
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
 ```
 
 
 ## Código SCSS
-
-```scss showLineNumbers
+```scss
 .navigation{
     background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(26,39,77,0.9093837364047181) 100%);
 
@@ -66,6 +117,37 @@ description: Barra de Navegación Base
     position: absolute;
     z-index: 900;
     width: 100%;
+
+    .top-contact{
+        .container{
+          padding-top: 20px;
+          padding-bottom: 10px;
+    
+          @media only screen and (max-width: 992px){
+            max-width: 100%;
+          }
+          @media only screen and (max-width: 999px){
+            display: none !important;
+          }
+        }
+        ul{
+          display: flex;
+          margin-bottom: 0rem;
+          justify-content: space-between;
+        }
+        a,
+        li{
+          color: white;
+          text-decoration: none;
+        }
+        .top-social a{
+          margin-right: 5px;
+    
+          i{
+            font-size: 1.2rem;
+          }
+        }
+    }
 
     .nav-align {
     /* NavBar Items Alignment */
@@ -144,6 +226,11 @@ description: Barra de Navegación Base
         background-color: #1A274D;
 
         position: fixed !important;
+
+        .top-contact{
+            display: none;
+            transition: all 0.3s ease-out;
+        }
 
         .nav-align {
             display: flex;
@@ -335,49 +422,46 @@ description: Barra de Navegación Base
 }
 ```
 
-
-
 ## Código JS
-
 ```js showLineNumbers
 function checkScroollMenu() {
-  if ($(window).scrollTop() > 80) {
-    // $('#main-header').addClass('fixed-top');
-    $("#main-header").addClass("nav-on-scroll");
-  } else {
-    // $('#main-header').removeClass('fixed-top');
-    $("#main-header").removeClass("nav-on-scroll");
+    if ($(window).scrollTop() > 60) {
+      // $('#main-header').addClass('fixed-top');
+      $("#main-header").addClass("nav-on-scroll");
+    } else {
+      // $('#main-header').removeClass('fixed-top');
+      $("#main-header").removeClass("nav-on-scroll");
+    }
   }
-}
-checkScroollMenu();
-
-$(window).scroll(function () {
   checkScroollMenu();
-});
-
-(function ($) {
-  // Begin jQuery
-  $(function () {
-    // DOM ready
-    // If a link has a dropdown, add sub menu toggle.
-    $("nav ul li a:not(:only-child)").click(function (e) {
-      $(this).siblings(".nav-dropdown").toggle();
-      // Close one dropdown when selecting another
-      $(".nav-dropdown").not($(this).siblings()).hide();
-      e.stopPropagation();
-    });
-    // Clicking away from dropdown will remove the dropdown class
-    $("html").click(function () {
-      $(".nav-dropdown").hide();
-    });
-    // Toggle open and close nav styles on click
-    $("#nav-toggle").click(function () {
-      $("nav ul").slideToggle();
-    });
-    // Hamburger to X toggle
-    $("#nav-toggle").on("click", function () {
-      this.classList.toggle("active");
-    });
-  }); // end DOM ready
-})(jQuery); // end jQuery
+  
+  $(window).scroll(function () {
+    checkScroollMenu();
+  });
+  
+  (function ($) {
+    // Begin jQuery
+    $(function () {
+      // DOM ready
+      // If a link has a dropdown, add sub menu toggle.
+      $("nav ul li a:not(:only-child)").click(function (e) {
+        $(this).siblings(".nav-dropdown").toggle();
+        // Close one dropdown when selecting another
+        $(".nav-dropdown").not($(this).siblings()).hide();
+        e.stopPropagation();
+      });
+      // Clicking away from dropdown will remove the dropdown class
+      $("html").click(function () {
+        $(".nav-dropdown").hide();
+      });
+      // Toggle open and close nav styles on click
+      $("#nav-toggle").click(function () {
+        $("nav ul").slideToggle();
+      });
+      // Hamburger to X toggle
+      $("#nav-toggle").on("click", function () {
+        this.classList.toggle("active");
+      });
+    }); // end DOM ready
+  })(jQuery); // end jQuery
 ```
