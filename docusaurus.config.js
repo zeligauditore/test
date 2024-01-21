@@ -68,12 +68,12 @@ const config = {
           src: 'img/logo.png',
         },
         items: [
-          {
+          /* {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Tutorial',
-          },
+          }, */
           {
             type: 'docSidebar',
             sidebarId: 'snippetsSidebar',
@@ -85,6 +85,12 @@ const config = {
             sidebarId: 'linuxSidebar',
             position: 'left',
             label: 'Guias Linux',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'programSidebar',
+            position: 'left',
+            label: 'Guias Programación',
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
         ],
@@ -102,7 +108,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ['php', 'powershell', 'css', 'sass', 'scss', 'bash'],
+        additionalLanguages: ['php', 'powershell', 'css', 'sass', 'scss', 'bash', 'sql', 'yaml'],
       },
     }),
 
