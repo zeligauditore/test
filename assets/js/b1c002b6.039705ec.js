@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktest=self.webpackChunktest||[]).push([[934],{2238:a=>{a.exports=JSON.parse('{"title":"Navbars","description":" ","slug":"/category/navbars","permalink":"/test/docs/category/navbars","navigation":{"next":{"title":"Navbar Base","permalink":"/test/docs/snippets/navbars/navbar-base"}}}')}}]);

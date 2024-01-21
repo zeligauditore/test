@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktest=self.webpackChunktest||[]).push([[7439],{9214:e=>{e.exports=JSON.parse('{"title":"SQL - MySQL","description":" ","slug":"/category/sql---mysql","permalink":"/test/docs/category/sql---mysql","navigation":{"next":{"title":"Docker Container","permalink":"/test/docs/prog-guids/sql/sql-docker"}}}')}}]);
